@@ -9,18 +9,28 @@ import SwiftUI
 import RealityKit
 import RealityKitContent
 
-struct ContentView: View {
+struct ImmersiveControlView: View {
+    
+    @Environment(\.openImmersiveSpace) var openImmersiveSpace
+    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
+    
+    
     var body: some View {
         VStack {
-            Model3D(named: "Scene", bundle: realityKitContentBundle)
-                .padding(.bottom, 50)
+            Button {
+                Task{
+                    await openImmersiveSpace(id:"ImmersiveView")
+                }
+                
+            } label: {
+                Image(systemName: "visionpro")
+            }
 
-            Text("Hello, world!")
         }
         .padding()
     }
 }
 
 #Preview(windowStyle: .automatic) {
-    ContentView()
+    ImmersiveControlView()
 }

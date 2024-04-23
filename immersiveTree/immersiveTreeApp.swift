@@ -9,9 +9,19 @@ import SwiftUI
 
 @main
 struct immersiveTreeApp: App {
+    
+    @State var immersionMode:ImmersionStyle = .progressive
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ImmersiveControlView()
         }
+        .defaultSize(width: 25, height: 25)
+        .windowStyle(.plain)
+        
+        ImmersiveSpace(id: "ImmersiveView"){
+            ImmersiveView()
+        }
+        .immersionStyle(selection: $immersionMode, in: .full)
     }
 }
