@@ -22,6 +22,6 @@ struct immersiveTreeApp: App {
         ImmersiveSpace(id: "ImmersiveView"){
             ImmersiveView()
         }
-        .immersionStyle(selection: $immersionMode, in: .full)
+        .immersionStyle(selection: $immersionMode, in: .progressive)
     }
 }
