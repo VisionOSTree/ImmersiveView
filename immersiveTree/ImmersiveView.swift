@@ -30,7 +30,7 @@ struct ImmersiveView: View {
         
         
         do{
-            let texture = try  TextureResource.load(named: "mossy_forest")
+            let texture = try  TextureResource.load(named: "meadow_2")
             skyBoxMaterial.color = .init(texture: .init(texture))
         } catch{
             print("error")
